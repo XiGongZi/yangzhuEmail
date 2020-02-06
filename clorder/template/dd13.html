@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+<meta content="telephone=no" name="format-detection">
+
+<meta name="apple-touch-fullscreen" content="yes">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>CLPHP订单系统2015 WEB版官方正式版 - 样式13</title>
+
+<script type="text/javascript" src="js/bddq.js" charset="gb2312"></script>
+
+<script type="text/javascript" src="js/cldd05.js"></script>
+
+<link href="css/cldd05.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body  style="width:568px; margin:0px auto">
+
+<div id="_alert_bg" style="display:none">
+
+    <div id="_alert_content"></div>
+
+</div>
+
+<script type="text/javascript">
+
+    function Malert(content) {
+
+        $("#_alert_content").text(content);
+
+        $("#_alert_bg").show();
+
+        $("#_alert_content").show();
+
+    }
+
+
+
+    $("document").ready(function () {
+
+        $("#_alert_bg").click(function () {
+
+            $("#_alert_bg").hide();
+
+            $("#_alert_content").hide();
+
+        });
+
+
+
+
+
+        $(".sku_ul a").click(function () {
+
+            var o = $(this);
+
+            if (!o.hasClass("sku_cur")) {//点击的不是当前已经选中的
+
+                $(".sku_cur").removeClass("sku_cur");
+
+                o.addClass("sku_cur");
+
+                /*更新对应的选中尺码的数据*/
+
+                $("#item_price").html("￥" + o.attr("data-price"));
+
+                $("#item_num").val(1);
+
+                $("#bdprice").val(o.attr("data-price"));
+
+                $("#bdproduct").val(o.attr("data-sku"));
+
+            }
+
+        });
+
+
+
+
+
+    });
+
+</script>
+
+<form id="clform" name="clform" action="../bdorder.php" method="post" onsubmit="return postcheck()" target="_parent">
+
+         <input type="hidden" value="" name="referer" id="referer">
+                <input type="hidden" value="" name="url" id="url">
+                <input type="hidden" value="" name="purl" id="purl">
+
+        <input type="hidden" name="bdpay" value="货到付款" />
+
+<input type="hidden" id="bdproduct" name="bdproduct" value="恭恭恭恭恭恭恭恭恭恭恭 2盒 385元"> 
+
+<input type="hidden" id="item_num" name="bdnum" value="1">
+
+<input type="hidden" id="bdprice" name="bdprice" value="385">
+
+<section class="item_sec">
+
+	<div class="item_wrap rel">
+
+		<img src="images/cpimg.jpg" height="80" width="80">
+
+		<p class="item_tle ellipsis">这里是产品名称</p>
+
+		<p class="item_pay">货到付款并包邮</p>
+
+		<ul class="sku_ul">
+
+            <li><a href="javascript:void(0);" class="sku_cur" data-price="385" data-sku="恭恭恭恭恭恭恭恭恭恭恭 2盒 385元">恭恭恭恭恭恭恭恭恭恭恭 2盒 385元</a></li>
+
+            <li><a href="javascript:void(0);" class="" data-price="580" data-sku="喜喜喜喜喜喜喜喜喜喜喜 4盒 580元">喜喜喜喜喜喜喜喜喜喜喜 4盒 580元</a></li>
+
+            <li><a href="javascript:void(0);" class="" data-price="785" data-sku="发发发发发发发发发发发 6盒 785元">发发发发发发发发发发发 6盒 785元</a></li>
+
+            <li><a href="javascript:void(0);" class="" data-price="960" data-sku="财财财财财财财财财财财 8盒 960元">财财财财财财财财财财财 8盒 960元</a></li>
+
+		</ul>
+
+		<p class="row"><label>价　格 </label>
+
+         <span class="i_pri" id="item_price">￥385.00</span></p>
+
+	</div>
+
+</section>
+
+<section class="item_sec">
+
+	<div class="item_wrap add">
+
+		<p class="row">
+
+			<label for="name">收货人</label>
+
+			<input id="name" name="bdname" class="block input" value="" tabindex="1" type="text">
+
+		</p>
+
+		<p class="row">
+
+			<label for="tel">联系手机</label>
+
+			<input id="tel" name="bdmob" maxlength="11" class="block input" value="" tabindex="2" type="tel">
+
+		</p>
+
+		<p class="row">
+
+			<label for="province">选择地区</label>
+
+			<select class="select" id="clprovince" name="bdprovince" tabindex="3"></select>
+
+            <select class="select" id="clcity" name="bdcity" tabindex="4"></select>
+
+            <select class="select" id="clarea" name="bdarea" tabindex="5" style="margin:0;"></select>
+
+		</p>
+
+		<p class="row row_area">
+
+			<label for="address">详细地址</label>
+
+			<input id="address" name="bdaddress" class="block input" value="" placeholder="街道门牌信息" tabindex="6" type="text">
+
+		</p>
+
+        <p class="row row_area">
+
+			<label for="other">客户留言</label>
+
+			<input id="other" name="bdguest" class="block input" tabindex="7" type="text" value="">
+
+		</p>
+
+		</div>
+
+</section>
+
+<footer>
+
+	<input type="submit" name="bdsubmit" class="c_txt orange_bg" value="立即提交订单" id="buy_now">
+
+</footer>
+
+</form>
+
+<script type="text/javascript">
+
+function postcheck(){
+
+	if (document.clform.bdname.value==""){
+
+		alert('请填写姓名！');
+
+		document.clform.bdname.focus();
+
+		return false;
+
+	}
+
+	var bdname = /^[\u4e00-\u9fa5]{2,6}$/;
+
+	if (!bdname.test(document.clform.bdname.value)){
+
+		alert('姓名格式不正确，请重新填写！');
+
+		document.clform.bdname.focus();
+
+		return false;
+
+	}
+
+	if (document.clform.bdmob.value==""){
+
+		alert('请填写手机号码！');
+
+		document.clform.bdmob.focus();
+
+		return false;
+
+	}
+
+	var clform = /^1[3,4,5,7,8]\d{9}$/;
+
+	if (!clform.test(document.clform.bdmob.value)){
+
+		alert('手机号码格式不正确，请重新填写！');
+
+		document.clform.bdmob.focus();
+
+		return false;
+
+	}
+
+	if (document.clform.clprovince.value==""){
+
+		alert('请选择所在地区！');
+
+		document.clform.clprovince.focus();
+
+		return false;
+
+	}
+
+	if (document.clform.bdaddress.value==""){
+
+		alert('请填写详细地址！');
+
+		document.clform.bdaddress.focus();
+
+		return false;
+
+	}
+
+    document.clform.bdsubmit.value="正在提交，请稍等 >>";
+
+    return true;
+
+}
+
+new PCAS("bdprovince","bdcity","bdarea");
+
+/*//////////////////////////// WFORDERJSFGX ////////////////////////////*/
+
+document.getElementById("referer").value = opener?opener.location.href:(top.document.referrer?top.document.referrer:top.location.href);
+document.getElementById("url").value = top.location.href;
+document.getElementById("purl").value = document.location;
+
+</script>
+
+</body>
+
+</html>

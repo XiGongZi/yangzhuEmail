@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <title>CLPHP订单系统2015 WEB版官方正式版 - 样式12</title>
+        <meta http-equiv="content-type" content="text/html; charset=gb2312">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+<script type="text/javascript" src="js/bddq.js" charset="gb2312"></script>
+        <link rel="stylesheet" href="style/bootstrap.min.css" />
+        <style type="text/css">
+            body {
+            margin: 10px 10px;
+            background-image: none;
+            background-color: #fff;
+            }
+            h5{font-weight:bold;font-size:12px;}
+            .small{font-size:12px;color:#808080}
+            .lh40{margin-top:5px;margin-bottom:5px;}
+            .pl0{padding-left:0px;}
+            .price {padding-left:10px;height:34px;line-height:34px;font-size:16px;}
+            .price strong {color:#d02d1a;font-weight:normal;}
+            .mt10{margin-top:10px;}
+            .mt20{margin-top:20px;}
+            .mt-20{margin-top:-20px;}
+            #order-btn {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 20px;
+            margin-top:15px;
+            }
+        </style>
+    </head>
+    <body  style="width:560px; margin:0px auto">
+    <form id="bdform" name="bdform" action="../bdorder.php" method="post" onSubmit="return postcheck()" target="_parent" class="form parsley-form">
+        <input type="hidden" value="" name="referer" id="referer">
+                <input type="hidden" value="" name="url" id="url">
+                <input type="hidden" value="" name="purl" id="purl">
+        <input type="hidden" name="bdprice" value="774" />
+        <input type="hidden" name="bdpay" value="货到付款" />
+  
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4>
+                    <i class="fa fa-shopping-cart"></i>
+                    商品信息
+                </h4>
+            </div>
+            <div class="panel-body">
+                <table cellpadding="3">
+                    <tr>
+                        <td rowspan="2" valign="top">
+                            <div class="thumbnail"><img src="images/090.jpg" width="80" /></div>
+                        </td>
+                        <td><h5>古法养肾茶</h5></td>
+                    </tr>
+                    <tr>
+                        <td class="small">
+                            货到付款并包邮
+                        </td>
+                    </tr>
+                </table>
+                <hr />
+                <div class="form-group">
+                    <div data-toggle="buttons">
+                    <ul class="sku_ul">
+
+<li><a data-price="774.00" data-sku="1" ><input  type="radio" checked  name="bdproduct" id="a1"  alt="774" onclick="pricea()"  value="古法养肾茶买3盒送2盒774元" />
+                            买3盒送2盒</a></li>
+
+<li><a data-price="516.00" data-sku="1" ><input  type="radio" name="bdproduct" id="a2"  alt="516" onclick="pricea()"  value="古法养肾茶买2盒送1盒516元" />
+                            买2盒送1盒</a></li>
+
+<li><a data-price="258.00" data-sku="1" ><input  type="radio" name="bdproduct" id="a3"  alt="258" onclick="pricea()"  value="古法养肾茶买1盒258元" />
+                            买1盒</a></li>
+
+
+
+</ul>
+
+                  
+
+                       
+                      <hr />
+                  </div>
+                </div>
+                <div class="form-group">
+                    <!--
+                    <label>
+                        <input min="1" max="99"
+                        value="1"
+                        autocomplete="off"
+                        data-min-message="购买数量不能少于 %s 个"
+                        data-max-message="购买数量不能超过 %s 个"
+                        data-required-message="请设置商品数量"
+                        data-required="true" type="number" id="number"
+                        name="number" style="width:70px;" class="form-control" />
+                    </label>
+                    -->
+                    <input type="hidden" name="bdnum" value="1" onChange="pricea()">
+                  <label>1</label>
+                    <label class="price">
+                        &times; 
+                        <strong>
+                            <i class="fa fa-cny"></i> 
+                            <span  id="showprice">774</span>元
+                      </strong>
+                    </label>
+                </div>
+            </div>
+            <!-- /#portlet-content -->
+        </div>
+        <!-- /#portlet-header -->
+        <div class="panel panel-info mt10">
+            <div class="panel-heading">
+                <h4>
+                    <i class="fa fa-user"></i>
+                    收货人信息
+                </h4>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <input value="" autocomplete="off" data-required-message="请填写收货人" data-required="true" placeholder="收货人" name="bdname" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input value="" autocomplete="off" data-required-message="请填写手机号" data-required="true" placeholder="手机号" name="bdmob" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                 
+			<select name="bdprovince" class="form-control ui-select2"></select></div>
+           <div class="form-group"> <select name="bdcity" class="form-control ui-select2"></select></div>
+           <div class="form-group"> <select name="bdarea" class="form-control ui-select2"></select>
+                    </div>
+                   
+              
+                <!-- /#region -->
+                <div class="form-group">
+                    <input value="" autocomplete="off" data-required-message="请填写详细街道地址" data-required="true" placeholder="详细街道地址" name="bdaddress" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input maxlength="30" data-maxlength-message="备注只能在30个字以内" value="" autocomplete="off" placeholder="下单备注" class="form-control" type="text" name="bdguest" />
+                </div>
+            </div>
+            <!-- /#portlet-content -->
+        </div>
+        <button type="submit" id="order-btn" name="bdsubmit" class="btn btn-lg btn-block btn-primary">提交订单</button>
+    </form>
+    <div class="alert alert-warning mt10" align="center">
+        提交订单后，客服将会与你联系进行确认，请保持手机通讯畅通。
+    </div>
+   
+   
+    <script type="text/javascript">
+        $(function () {
+            if (typeof(init_events) == 'function')
+                init_events();
+        });
+    </script>
+     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	 <script type="text/javascript">
+
+
+$(document).ready(function(){
+    var doc=document,inputs=doc.getElementsByTagName('input'),supportPlaceholder='placeholder'in doc.createElement('input'),placeholder=function(input){var text=input.getAttribute('placeholder'),defaultValue=input.defaultValue;
+    if(defaultValue==''){
+        input.value=text}
+        input.onfocus=function(){
+            if(input.value===text){this.value=''}};
+            input.onblur=function(){if(input.value===''){this.value=text}}};
+            if(!supportPlaceholder){
+                for(var i=0,len=inputs.length;i<len;i++){var input=inputs[i],text=input.getAttribute('placeholder');
+                if(input.type==='text'&&text){placeholder(input)}}}});
+
+</script>
+
+    <script type="text/javascript" src="js/bdbd.js"></script>
+    
+    </body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+
+<title>CLPHP订单系统2015 WEB版官方正式版 - 样式10</title>
+
+<link href="css/clstyle.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+
+    /**
+  **************************************************************************************************
+  **********  CLPHP订单系统2015 WEB版官方正式版  *****  官方正版 *** 版权所有 *** 盗版必究  **********
+  **********------------------------------------------------------------------------------**********
+  * 官方网站：http://www.chunleinet.com/ 官方店铺：http://jxlcl.taobao.com/  *  官方店铺旺旺:chunlei2615 请认准再购买 *
+  **************************************************************************************************
+*/
+
+#clorder{width:580px;background:#FFF;}
+
+.clwarp{border:5px solid #44B549;}
+
+.cltitlea,.cltitleb{border-bottom:1px solid #44B549;}
+
+.clrxian{border-right:1px solid #44B549;}
+
+.clsubbox input{background:#44B549;}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="clorder">
+
+    <div class="clwarp">
+
+           <form id="clform" name="clform" action="../bdorder.php" method="post" onsubmit="return postcheck()" target="_parent">
+
+                 <input type="hidden" value="" name="referer" id="referer">
+                <input type="hidden" value="" name="url" id="url">
+                <input type="hidden" value="" name="purl" id="purl">
+
+        <input type="hidden" name="bdnum" value="1">
+
+        <input type="hidden" name="bdprice" value="580">
+
+        <div class="cltitlea"></div>
+
+        <div class="clbdbox">
+
+            <label class="clbdxx"><em>*</em>选择产品</label>
+
+            <div class="cldxbox red">
+
+                <input type="radio" name="bdproduct" id="a1" value="恭恭恭恭恭恭恭恭恭恭恭 385元" alt="385" onclick="pricea()"><label for="a1">恭恭恭恭恭恭恭恭恭恭恭 385元</label><br>
+
+                <input type="radio" checked name="bdproduct" id="a2" value="喜喜喜喜喜喜喜喜喜喜喜 580元" alt="580" onclick="pricea()"><label for="a2">喜喜喜喜喜喜喜喜喜喜喜 580元 <img src="images/hot.gif"></label><br>
+
+            </div>
+
+        </div>
+
+        <div class="clbdbox">
+
+            <label class="clbdxx"><em>*</em>收货人姓名</label>
+
+            <div class="cltextbox">
+
+                <input type="text" name="bdname">
+
+            </div>
+
+        </div>
+
+        <div class="clbdbox">
+
+            <label class="clbdxx"><em>*</em>手机号码</label>
+
+            <div class="cltextbox">
+
+                <input type="text" name="bdmob">
+
+            </div>
+
+        </div>
+
+        <div class="clbdbox">
+
+            <label class="clbdxx"><em>*</em>QQ号码</label>
+
+            <div class="cltextbox">
+
+                <input type="text" name="bdqq">
+
+            </div>
+
+        </div>
+
+        <div class="clbdbox">
+
+            <label class="clbdxx"><em>*</em>电子邮箱</label>
+
+            <div class="cltextbox">
+
+                <input type="text" name="bdemail">
+
+            </div>
+
+        </div>
+
+       <div class="clbdbox">
+
+            <label class="clbdxx"><em>*</em>付款方式</label>
+
+            <div class="cldxbox">
+<input type="radio" checked="checked" name="bdpay" id="b1" value="cod" onClick="opay();return changeItem(0);" /><label for="b1"><img src="images/fka.gif" /></label>
+                        <input type="radio" name="bdpay" id="b2" value="alipay" onClick="opay2();return changeItem(1);" /><label for="b2"><img src="images/fkb.gif" /></label>
+                        <input type="radio" name="bdpay" id="b3" value="bank" onClick="opay();return changeItem(2);" /><label for="b3"><img src="images/fkc.gif" /></label>
+               
+
+            </div>
+
+        </div>
+          <div class="clbdbox">
+                    <div id="paydiv0" class="bdpayps">
+                        <p><img src="images/fkat.gif" /></p>
+                    </div>
+                    <div id="paydiv1" class="bdpayps" style="display:none;">					
+                        <p><img src="images/fkbt.gif" /></p>							
+                    </div>
+                    <div id="paydiv2" class="bdpayps" style="display:none;">
+                        <p><img src="images/fkct.gif" /></p>
+                    </div>
+                </div>
+
+        <div class="clbdbox">
+
+            <label class="clbdxx">留言</label>
+
+            <div class="cltext2box">
+
+                <textarea name="bdguest" onfocus="if(value=='请尽快安排发货，送货之前手机联系，谢谢！'){value=''}" onblur="if (value ==''){value='请尽快安排发货，送货之前手机联系，谢谢！'}">请尽快安排发货，送货之前手机联系，谢谢！</textarea>
+
+            </div>
+
+        </div>
+
+                <div class="clsubbox">
+
+            <input type="submit" name="bdsubmit" value="立即提交订单">
+
+        </div>
+
+        </form>
+
+        <div style="clear:both;"></div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="js/clbd.js"></script>
+
+</body>
+
+</html>

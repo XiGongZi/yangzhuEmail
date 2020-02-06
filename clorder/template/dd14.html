@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<title>CLASP订单系统2015 WAP版官方正式版 - 样式04</title>
+<script type="text/javascript" src="js/bddq.js" charset="gb2312"></script>
+<link href="style/bdstyle.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+
+</head>
+<body>
+<div id="bdorder">
+    <div class="bdwarp">
+    
+    
+    
+        <form id="bdform" name="bdform" action="../bdorder.php" method="post" onSubmit="return postcheck()" target="_parent">
+         <input type="hidden" value="" name="referer" id="referer">
+                <input type="hidden" value="" name="url" id="url">
+                <input type="hidden" value="" name="purl" id="purl">
+                <input type="hidden" name="bdproduct"  id="tempString"  />
+        <input type="hidden" name="bdnum" value="1" />
+        <input type="hidden" name="bdprice" value="580" />
+        <input type="hidden" name="bdpay" value="货到付款" />
+         <div class="clearfix bar_a block" id="book">
+
+        <h3 class="t1 tc">
+
+            在线快速订购</h3>
+
+        <h3 class="t4">
+
+            选择商品：</h3>
+
+        <ul class="list">
+        
+         <li> <input type="checkbox" name="box" id="box1" value="恭恭恭恭恭恭恭恭恭恭恭 2盒 385元" alt="385" onclick="checkbox()"/><label for="a1" style="font-size: 18px">恭恭恭恭恭恭恭恭恭恭恭 2盒385元</label></li>
+         <li> <input type="checkbox" name="box" id="box2" value="喜喜喜喜喜喜喜喜喜喜喜 4盒 580元" alt="580" onclick="checkbox()"/><label for="a2" style="font-size: 18px">喜喜喜喜喜喜喜喜喜喜喜 4盒580元</label> </li>
+         <li> <input type="checkbox" name="box" id="box3" value="发发发发发发发发发发发 6盒 785元" alt="785" onclick="checkbox()"/><label for="a3" style="font-size: 18px">发发发发发发发发发发发 6盒785元</label></li>
+         <li> <input type="checkbox" name="box" id="box4" value="财财财财财财财财财财财 8盒 960元" alt="960" onclick="checkbox()"/><label for="a4" style="font-size: 18px">财财财财财财财财财财财 8盒960元</label></li>
+           
+        </ul>
+
+
+
+        <h3 class="t4">
+
+            填写邮寄信息：</h3>
+        
+
+            <input type="text" name="bdname" class="text" placeholder="收件人姓名">
+
+            <input type="tel" name="bdmob" class="text" placeholder="电话">
+                        <div class="form-group">
+                 
+			<select name="bdprovince" class="text"></select></div>
+           <div class="form-group"> <select name="bdcity" class="text"></select></div>
+           <div class="form-group"> <select name="bdarea" class="text"></select>
+                    </div>
+
+            <input class="text" name="bdaddress" placeholder="收件地址"></input>
+
+            <input type="submit" name="bdsubmit" class="btn btn_4 bar_b" value="提交订单">
+
+       
+
+        <h3 class="t4 tc warn">
+
+            正品保障！货到付款！7天包退换！</h3>
+
+    </div>
+        
+       
+  
+
+        <div style="clear:both;"></div> </form>
+    </div>
+    </div>
+    <script>
+    function checkbox()
+{
+var str=document.getElementsByName("box");
+var objarray=str.length;
+var chestr="";
+for (i=0;i<objarray;i++)
+{  if(str[i].checked == true)
+  {
+   chestr+=str[i].value+",";
+  }
+}
+if(chestr == "")
+{
+  alert("请选择中意的产品！");
+}
+else
+{
+  document.bdform.bdproduct.value =chestr  ;
+}
+}
+</script>
+
+<script type="text/javascript" src="js/bdbd.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	 <script type="text/javascript">
+
+
+$(document).ready(function(){
+    var doc=document,inputs=doc.getElementsByTagName('input'),supportPlaceholder='placeholder'in doc.createElement('input'),placeholder=function(input){var text=input.getAttribute('placeholder'),defaultValue=input.defaultValue;
+    if(defaultValue==''){
+        input.value=text}
+        input.onfocus=function(){
+            if(input.value===text){this.value=''}};
+            input.onblur=function(){if(input.value===''){this.value=text}}};
+            if(!supportPlaceholder){
+                for(var i=0,len=inputs.length;i<len;i++){var input=inputs[i],text=input.getAttribute('placeholder');
+                if(input.type==='text'&&text){placeholder(input)}}}});
+
+</script>
+
+</body>
+</html>
