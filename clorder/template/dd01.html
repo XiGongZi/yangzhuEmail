@@ -143,11 +143,11 @@
                                         </select>
                                         <select name="PurchaseCity" style="width: 150px" @change="changeProduct2($event)">
                                             <option value="">请选择市</option>
-                                            <option :value="key" v-for="(item, key) in cities[selectCity]" :key="key">{{key}}</option>
+                                            <option :value="key" v-for="(item, key) in cities2" :key="key">{{key}}</option>
                                         </select>
                                         <select name="PurchaseArea" style="width: 150px" @change="changeProduct3($event)">
                                             <option value="">请选择区</option>
-                                            <option :value="key" v-for="(item, key) in cities[selectCity]" :key="key">{{key}}</option>
+                                            <option :value="key" v-for="(item, key) in cities2[selectCity1]" :key="key">{{item}}</option>
                                         </select>
                                             
                                         </div>
