@@ -1,4 +1,3 @@
-
 let vm = new Vue({
     el: "#clform",
     data() {
@@ -461,7 +460,8 @@ let vm = new Vue({
         }
     },
     mounted() {
-        this.socket = io.connect('http://127.0.0.1:8081');
+        let soc = window.location.origin;
+        this.socket = io.connect(soc);
     },
     methods: {
         pricea(event) {

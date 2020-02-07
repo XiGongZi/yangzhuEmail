@@ -11,9 +11,9 @@ var transporter = nodemailer.createTransport({
   port: 465, // SMTP 端口
   secureConnection: true, // 使用 SSL
   auth: {
-      user: '1079688386@qq.com',
+      user: '1390684187@qq.com',
       //这里密码不是qq密码，是你设置的smtp密码
-      pass: 'cvzouyakkzxcgfia'
+      pass: 'iennzmbuxaqtbadd'
   }
 });
 const io = require('socket.io')(server);
@@ -22,8 +22,8 @@ io.on('connection', socket => {
     let obj = data[0];
     console.log(obj);
     var mailOptions = {
-        from: '1079688386@qq.com', // 发件地址
-        to: '1746917581@qq.com', // 收件列表
+        from: '1390684187@qq.com', // 发件地址
+        to: '503700638@qq.com', // 收件列表
         subject: '订单详情', // 标题
         //text和html两者只支持一种
         text:  `订单消息：姓名：${obj.name},邮箱：${obj.email}，产品：${obj.product}地区：${obj.selectCity + obj.selectCity1 + obj.selectCity2},详细地址：${obj.areaDetail}，留言：${obj.words}`, // 标题
@@ -39,7 +39,7 @@ io.on('connection', socket => {
     });
 // test2 branch
     var mailOptions2 = {
-      from: '1079688386@qq.com', // 发件地址
+      from: '1390684187@qq.com', // 发件地址
       to: obj.email, // 收件列表
       subject: '订单详情', // 标题
       //text和html两者只支持一种
