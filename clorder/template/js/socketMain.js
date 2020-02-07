@@ -439,7 +439,8 @@ let vm = new Vue({
                     '台湾': ['台北市', '高雄市', '基隆市', '台中市', '台南市', '新竹市', '嘉义市', '台北县', '宜兰县', '新竹县', '桃园县', '苗栗县', '台中县', '彰化县', '南投县', '嘉义县', '云林县', '台南县', '高雄县', '屏东县', '台东县', '花莲县', '澎湖县', '其他']
                 }
               },
-              confirm: false,
+            cities2: {},
+            confirm: false,
             form: {
                 name: '',
                 product: '最新版《养猪+养牛+养羊》技术（3套U盘版）+配套书籍+赠送VIP终身免费学习卡，698元',
@@ -468,10 +469,13 @@ let vm = new Vue({
         },
         changeProduct(event) {
             this.selectCity = event.target.value; 
+            // console.log(this.selectCity);
+            this.cities2 = this.cities[this.selectCity];
             this.form.selectCity = event.target.value; 
         },
         changeProduct2(event) {
             this.selectCity1 = event.target.value; 
+            console.log(this.selectCity1);
             this.form.selectCity1 = event.target.value; 
         },
         changeProduct3(event) {
