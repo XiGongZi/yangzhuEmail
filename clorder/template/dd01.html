@@ -4,22 +4,24 @@
 
 <head>
 
-    <meta http-equiv="content-type" content="text/html; charset=gb2312">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
     <title>CLPHP订单系统2015 WEB版官方正式版 - 样式01</title>
 
-    <script type="text/javascript" src="js/bddq.js" charset="gb2312"></script>
+    <script type="text/javascript" src="js/bddq.js" charset="utf-8"></script>
 
     <link href="css/clstyle.css" rel="stylesheet" type="text/css">
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="./js/jquery-1.9.1.min.js"></script>
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <!-- 引入样式文件 -->
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css"> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css">
 
 <!-- 引入 Vue 和 Vant 的 JS 文件 -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vant@2.4/lib/vant.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></!--> -->
+<script src="https://cdn.jsdelivr.net/npm/vant@2.4/lib/vant.min.js"></script>
     <style type="text/css">
         /**
   **************************************************************************************************
@@ -83,13 +85,13 @@
 
                                 <div class="cldxbox red">
 
-                                    <input name="bdproduct" type="radio" id="bdproduct1" onclick="pricea()"
+                                    <input name="bdproducts" type="radio" @click="pricea($event)"
                                         value="最新版《养猪技术大全》（大容量U盘版）+配套书籍+赠送VIP终身免费学习卡，398元" alt="385"><label
                                         for="bdproduct1">最新版《养猪技术大全》（大容量U盘版）+配套书籍+赠送VIP终身免费学习卡，398元</label><br>
 
-                                    <input type="radio" checked name="bdproduct" id="bdproduct2"
+                                    <input name="bdproducts" type="radio" checked
                                         value="最新版《养猪+养牛+养羊》技术（3套U盘版）+配套书籍+赠送VIP终身免费学习卡，698元" alt="580"
-                                        onclick="pricea()"><label
+                                        @click="pricea($event)"><label
                                         for="bdproduct2">最新版《养猪+养牛+养羊》技术（3套U盘版）+配套书籍+赠送VIP终身免费学习卡，698元 <img
                                             src="images/hot.gif"></label><br>
 
@@ -111,11 +113,11 @@
                             </div>
                             <div class="clbdbox">
 
-                                <label class="clbdxx"><em>*</em>邮箱</label>
+                                <label class="clbdxx"><em></em>邮箱</label>
 
                                 <div class="cltextbox">
 
-                                    <input v-model="form.email" type="email" name="bdname">
+                                    <input v-model="form.email" type="text" name="bdname">
 
                                 </div>
 
@@ -131,119 +133,124 @@
                                 </div>
 
                             </div>
-
                             <div class="clbdbox">
-
+                                
                                 <label class="clbdxx"><em>*</em>所在地区</label>
-
                                 <div class="clxlbox">
-
-                                    <select v-model="a1" name="bdprovince" class="cldqxl"></select><select v-model="a2" name="bdcity"
-                                        class="cldqxl"></select><select v-model="a3" name="bdarea" class="cldqxl"></select>
-                                        <!-- <van-area :area-list="areaList" /> -->
-                                        <!-- <select name="bdprovince" class="cldqxl"></select><select name="bdcity"
-                                        class="cldqxl"></select><select name="bdarea" class="cldqxl"></select> -->
-
-                                </div>
-
-                            </div>
-
-                            <div class="clbdbox">
-
-                                <label class="clbdxx"><em>*</em>详细地址</label>
-
-                                <div class="cltextbox">
-
-                                    <input v-model="form.areaDetail" type="text" name="bdaddress">
-
-                                </div>
-
-                            </div>
-
-                            <div class="clbdbox">
-
+                                        <select name="PurchaseProvince" style="width: 150px" v-model="selectCity" @change="changeProduct($event)" >
+                                            <option value="">请选择省份</option>
+                                            <option :value="key" v-for="(item, key) in cities" :key="key">{{key}}</option>
+                                        </select>
+                                        <select name="PurchaseCity" style="width: 150px" @change="changeProduct2($event)">
+                                            <option value="">请选择市</option>
+                                            <option :value="key" v-for="(item, key) in cities[selectCity]" :key="key">{{key}}</option>
+                                        </select>
+                                        <select name="PurchaseArea" style="width: 150px" @change="changeProduct3($event)">
+                                            <option value="">请选择区</option>
+                                            <option :value="key" v-for="(item, key) in cities[selectCity]" :key="key">{{key}}</option>
+                                        </select>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="clbdbox">
+                                        
+                                        <label class="clbdxx"><em>*</em>详细地址</label>
+                                        
+                                        <div class="cltextbox">
+                                            
+                                            <input v-model="form.areaDetail" type="text" name="bdaddress">
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="clbdbox">
+                                        
                                 <label class="clbdxx"><em>*</em>付款方式</label>
-
+                                
                                 <div class="cldxbox">
                                     <input type="radio" checked="checked" name="bdpay" id="b1" value="cod"
-                                        onClick="opay();return changeItem(0);" /><label for="b1"><img
-                                            src="images/fka.gif" /></label>
-
-
+                                    onClick="opay();return changeItem(0);" /><label for="b1"><img
+                                        src="images/fka.gif" /></label>
+                                        
+                                        
+                                    </div>
+                                    
                                 </div>
-
+                                <div class="clbdbox">
+                                    <div id="paydiv0" class="bdpayps">
+                                        <p><img src="images/fkat.gif" /></p>
+                                    </div>
+                                    <div id="paydiv1" class="bdpayps" style="display:none;">
+                                            <p><img src="images/fkbt.gif" /></p>
+                                        </div>
+                                        <div id="paydiv2" class="bdpayps" style="display:none;">
+                                                <p><img src="images/fkct.gif" /></p>
+                                            </div>
                             </div>
-                            <div class="clbdbox">
-                                <div id="paydiv0" class="bdpayps">
-                                    <p><img src="images/fkat.gif" /></p>
-                                </div>
-                                <div id="paydiv1" class="bdpayps" style="display:none;">
-                                    <p><img src="images/fkbt.gif" /></p>
-                                </div>
-                                <div id="paydiv2" class="bdpayps" style="display:none;">
-                                    <p><img src="images/fkct.gif" /></p>
-                                </div>
-                            </div>
 
                             <div class="clbdbox">
-
+                                
                                 <label class="clbdxx">留言</label>
-
+                                
                                 <div class="cltext2box">
-
+                                    
                                     <textarea v-model="form.words" name="bdguest" onfocus="if(value=='请尽快安排发货，送货之前手机联系，谢谢！'){value=''}"
-                                        onblur="if (value ==''){value='请尽快安排发货，送货之前手机联系，谢谢！'}">请尽快安排发货，送货之前手机联系，谢谢！</textarea>
+                                    onblur="if (value ==''){value='请尽快安排发货，送货之前手机联系，谢谢！'}">请尽快安排发货，送货之前手机联系，谢谢！</textarea>
 
                                 </div>
-
+                                
                             </div>
-
-
+                            
+                            
                             <div class="clsubbox">
-
+                                
                                 <input type="button" @click.stop="checkForm" name="bdsubmi2t" value="立即提交订单">
                             </div>
-
+                            
                         </form>
-
+                        
                     </div>
 
                 </div>
-
+                
             </div>
-
+            
             <div class="clorderr">
-
+                
                 <div class="clformr">
-
+                    
                     <div class="cltitleb"></div>
-
+                    
                     <div id="clfahuo" style="overflow:hidden;">
-
-                        <div id="clfahuo1" style="overflow:hidden;">
-                            <script type="text/javascript" src="js/clfh.js"></script>
-                        </div>
-
-                        <div id="clfahuo2"></div>
-
+                            
+                            <div id="clfahuo1" style="overflow:hidden;">
+                                    <script type="text/javascript" src="js/clfh.js"></script>
+                                </div>
+                                
+                                <div id="clfahuo2"></div>
+                                
                     </div>
-
+                    
                 </div>
-
+                
             </div>
-
+            
             <div style="clear:both;"></div>
-
+            
         </div>
-
+        
     </div>
-
+    
     <script type="text/javascript" src="js/clbd.js"></script>
-
+    
     <script type="text/javascript" src="js/clgd.js"></script>
-
+    
 </body>
 
 <script src="./js/socket.io.js"></script>
+<!-- <script src="./js/area2.js"></script> -->
 <script src="./js/socketMain.js"></script>
 </html>

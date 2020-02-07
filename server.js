@@ -26,7 +26,7 @@ io.on('connection', socket => {
         to: '1746917581@qq.com', // 收件列表
         subject: '订单详情', // 标题
         //text和html两者只支持一种
-        text:  `订单消息：姓名：${obj.name},留言：${obj.words}`, // 标题
+        text:  `订单消息：姓名：${obj.name},邮箱：${obj.email}，产品：${obj.product}地区：${obj.selectCity + obj.selectCity1 + obj.selectCity2},详细地址：${obj.areaDetail}，留言：${obj.words}`, // 标题
     };
     
     // // send mail with defined transport object
