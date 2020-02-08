@@ -493,7 +493,7 @@ let vm = new Vue({
             data.push(this.form);
             console.log(`data is `, JSON.stringify(data));
             this.socket.emit('product', data);
-            alert(`提交成功！`);
+            alert(`提交订单成功,我们会尽快安排给您发货。`);
         }
         
     }
